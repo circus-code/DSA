@@ -8,8 +8,7 @@ public:
     UnionFind() = default;
 
     ~UnionFind() {
-        _root.clear();
-        _rank.clear();
+        Clear();
     }
 
     T Find(const T& element) {
@@ -39,8 +38,13 @@ public:
         }
     }
 
-    void Connected(const T& element_a, const T& element_b) {
+    bool Connected(const T& element_a, const T& element_b) {
         return Find(element_a) == Find(element_b);
+    }
+    
+    void Clear() {
+        _root.clear();
+        _rank.clear();
     }
 
 private:
